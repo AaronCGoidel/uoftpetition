@@ -12,7 +12,13 @@ export default function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="form">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="form"
+      netlify-honeypot="bot-field"
+      data-netlify="true"
+      onSubmit={this.handleSubmit}
+    >
       <label className="title">Name</label>
       <input
         type="text"
@@ -20,7 +26,6 @@ export default function Form() {
         name="Name"
         ref={register({ maxLength: 80 })}
       />
-
       <label className="title">Learning Type</label>
       <div>
         <input
@@ -32,14 +37,12 @@ export default function Form() {
         />
         <label htmlFor="in-person">All my classes are in-person</label>
       </div>
-
       <div>
         <input type="radio" name="learning-type" value="mix" ref={register} />
         <label htmlFor="mix">
           I have a mix of in-person and online classes
         </label>
       </div>
-
       <div>
         <input
           type="radio"
@@ -50,7 +53,6 @@ export default function Form() {
         />
         <label htmlFor="online">All of my classes are online</label>
       </div>
-
       <div className="buttons flex-center">
         <Button dark text={"Send Customized Petition"} type="submit" />
         <div className="divider">or</div>
