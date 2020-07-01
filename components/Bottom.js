@@ -8,7 +8,7 @@ const Bottom = (props) => {
       <h2>Join</h2>
       <h1>{props.num || 0}</h1>
       <h2>Others in petitioning for fair tuition during Covid-19.</h2>
-      <Button text={"Send Your Petition"} />
+      <Button text={"Send Your Petition"} onClick={props.toggleForm} />
       <style jsx>
         {`
           h1 {

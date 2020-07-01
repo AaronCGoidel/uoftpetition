@@ -10,7 +10,7 @@ const Hero = (props) => {
       <div className="call-to flex-center">
         <h1>Online learning should not be as expensive as in-person.</h1>
         <h2>Stand up for fair fees during Covid-19.</h2>
-        <Button text={"Send Email"} onClick={() => console.log("Email Sent")} />
+        <Button text={"Send Email"} onClick={props.toggleForm} />
       </div>
       <Arrow text={"Learn More"} />
       <style jsx>
