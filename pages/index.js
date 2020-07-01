@@ -29,13 +29,13 @@ class Home extends React.Component {
         </Head>
 
         <main>
+          <Hero toggleForm={() => this.handleToggleForm()} />
+          <Info />
+          <Bottom toggleForm={() => this.handleToggleForm()} />
           <Modal
             open={this.state.form_open}
             closeFn={() => this.handleToggleForm()}
           />
-          <Hero toggleForm={() => this.handleToggleForm()} />
-          <Info />
-          <Bottom toggleForm={() => this.handleToggleForm()} />
         </main>
 
         <Footer />
@@ -60,6 +60,10 @@ class Home extends React.Component {
 
           * {
             box-sizing: border-box;
+          }
+
+          *:focus {
+            outline: none;
           }
 
           .flex-center {

@@ -2,7 +2,8 @@ import React from "react";
 
 const Button = (props) => {
   return (
-    <div
+    <button
+      type={props.type}
       className={`button ${props.dark ? "dark" : "light"}`}
       onClick={props.onClick}
     >
@@ -26,6 +27,9 @@ const Button = (props) => {
           transition: 0.2s ease-in-out;
 
           margin: 1.4rem;
+
+          background-color: transparent;
+          color: #fff;
         }
 
         .light:hover,
@@ -49,7 +53,7 @@ const Button = (props) => {
           opacity: 0.8;
         }
       `}</style>
-    </div>
+    </button>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import Button from "./Button";
+import Form from "./Form";
 
 function useOutsideAlerter(ref, callback, isOpen) {
   useEffect(() => {
@@ -28,24 +29,13 @@ const Modal = (props) => {
   return (
     <div className={`modal ${props.open ? "show-modal" : ""}`}>
       <div ref={modalRef} className="modal-window">
-        <div>
-          <span className="close-button" onClick={props.closeFn}>
-            &times;
-          </span>
+        <div className="close-button" onClick={props.closeFn}>
+          &times;
         </div>
-        <div className="content">
+        <div className="content flex-center">
           <h1>Send Your Petition</h1>
           <h4>The following (optional) form will help customize your email.</h4>
-          <div className="bottom">
-            <Button
-              dark
-              text={
-                props.formEmpty
-                  ? "Submit Default Peitition"
-                  : "Submit Customized Petition"
-              }
-            />
-          </div>
+          <Form />
         </div>
       </div>
       <style jsx>{`
@@ -53,8 +43,8 @@ const Modal = (props) => {
           position: fixed;
           left: 0;
           top: 0;
-          width: 100%;
-          height: 100%;
+          width: 100vw;
+          height: 100vh;
           background-color: rgba(0, 0, 0, 0.5);
           opacity: 0;
           visibility: hidden;
@@ -70,12 +60,11 @@ const Modal = (props) => {
           transform: translate(-50%, -50%);
           background-color: white;
           padding: 1rem 1rem;
-          width: 24rem;
+          width: 30rem;
           border-radius: 0.5rem;
         }
 
         .close-button {
-          float: left;
           width: 1.5rem;
           line-height: 1.5rem;
           text-align: center;
@@ -104,9 +93,6 @@ const Modal = (props) => {
           .content {
             height: 100vh;
             padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
           }
         }
       `}</style>
