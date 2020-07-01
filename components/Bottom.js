@@ -6,8 +6,8 @@ const Bottom = (props) => {
   return (
     <Container dark thin>
       <h2>Join</h2>
-      <h1>{props.num || 0}</h1>
-      <h2>Others in petitioning for fair tuition during Covid-19.</h2>
+      <h1>{props.num?.toLocaleString() || 0}</h1>
+      <h2>others in petitioning for fair tuition during Covid-19.</h2>
       <Button text={"Send Your Petition"} onClick={props.toggleForm} />
       <style jsx>
         {`

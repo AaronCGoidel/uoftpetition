@@ -11,7 +11,8 @@ const Button = (props) => {
       <style jsx>{`
         .button {
           width: 300px;
-          height: 64px;
+          // height: 64px;
+          height: auto;
 
           border: 3px solid #fff;
           border-radius: 50px;
@@ -20,7 +21,7 @@ const Button = (props) => {
           justify-content: center;
           align-items: center;
 
-          font-size: 20px;
+          font-size: 1.2em;
 
           cursor: pointer;
 
@@ -40,6 +41,7 @@ const Button = (props) => {
 
         p {
           padding: 0 1rem;
+          margin: 0.7em;
         }
 
         .dark {

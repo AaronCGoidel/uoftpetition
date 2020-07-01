@@ -31,7 +31,7 @@ class Home extends React.Component {
         <main>
           <Hero toggleForm={() => this.handleToggleForm()} />
           <Info />
-          <Bottom toggleForm={() => this.handleToggleForm()} />
+          <Bottom toggleForm={() => this.handleToggleForm()} num={1} />
           <Modal
             open={this.state.form_open}
             closeFn={() => this.handleToggleForm()}

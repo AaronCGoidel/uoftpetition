@@ -38,9 +38,9 @@ export default function Form() {
       </div>
 
       <div className="buttons flex-center">
-        <Button dark text={"Submit Customized Petition"} type="submit" />
+        <Button dark text={"Send Customized Petition"} type="submit" />
         <div className="divider">or</div>
-        <Button dark text={"Submit Default Petition"} type="button" />
+        <Button dark text={"Send Default Petition"} type="button" />
       </div>
       <style jsx>
         {`
@@ -54,12 +54,18 @@ export default function Form() {
               display: flex;
               flex-direction: column;
           }
+
           input[type="text"] {
             flex: 1;
             padding: 1.2rem 1rem;
             border-radius: 12px;
             border 1px solid #6c6c6c;
             font-size: 14px;
+          }
+
+          input[type="radio"] {
+              margin-right: 5px;
+              margin-bottom: 10px;
           }
 
           .divider {

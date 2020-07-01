@@ -65,8 +65,8 @@ const Modal = (props) => {
         }
 
         .close-button {
-          width: 1.5rem;
-          line-height: 1.5rem;
+          width: 1.6rem;
+          line-height: 1.6rem;
           text-align: center;
           cursor: pointer;
           border-radius: 1rem;
