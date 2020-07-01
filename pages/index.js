@@ -25,6 +25,11 @@ class Home extends React.Component {
       <div className="container">
         <Head>
           <title>UofT Petition</title>
+          <meta
+            name="Description"
+            content="Petition to lower fees for students who are using online learning at the University of Toronto during Covid-19."
+          />
+
           {/* <link rel="icon" href="/favicon.ico" /> */}
         </Head>
 
