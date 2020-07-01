@@ -2,7 +2,11 @@ import React from "react";
 
 const Container = (props) => {
   return (
-    <div className={`flex-center ${props.dark ? "dark" : ""}`}>
+    <div
+      className={`flex-center ${props.dark ? "dark" : ""} ${
+        props.thin ? "thin" : ""
+      }`}
+    >
       <style jsx>{`
         div {
           width: 100vw;
@@ -27,9 +31,18 @@ const Container = (props) => {
           color: #fff;
         }
 
-        @media screen and (max-width: 60rem) {
+        .thin {
+          height: 50vh;
+        }
+
+        @media screen and (max-width: 70rem) {
           div {
             --pad: 1rem;
+            height: auto;
+          }
+
+          .thin {
+            height: auto;
           }
         }
       `}</style>

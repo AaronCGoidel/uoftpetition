@@ -2,6 +2,7 @@ import Head from "next/head";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import Info from "../components/Info";
+import Bottom from "../components/Bottom";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <main>
         <Hero />
         <Info />
+        <Bottom />
       </main>
 
       <Footer />
@@ -46,8 +48,12 @@ export default function Home() {
           align-items: center;
         }
 
-        h1 {
-          // font-size: 3rem;
+        h1,
+        h2,
+        h3,
+        h4 {
+          text-align: center;
+          font-weight: normal;
         }
       `}</style>
     </div>

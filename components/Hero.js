@@ -10,7 +10,7 @@ const Hero = (props) => {
       <div className="call-to flex-center">
         <h1>Online learning should not be as expensive as in-person.</h1>
         <h2>Stand up for fair fees during Covid-19.</h2>
-        <Button text={"Send Email"} />
+        <Button text={"Send Email"} onClick={() => console.log("Email Sent")} />
       </div>
       <Arrow text={"Learn More"} />
       <style jsx>
@@ -18,14 +18,6 @@ const Hero = (props) => {
           .hero {
             background-color: var(--color-main);
             color: #fff;
-          }
-
-          h1,
-          h2,
-          h3,
-          h4 {
-            text-align: center;
-            font-weight: normal;
           }
 
           .call-to {

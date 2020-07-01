@@ -2,11 +2,11 @@ import React from "react";
 
 const Button = (props) => {
   return (
-    <div className="button">
+    <div className="button" onClick={props.onClick}>
       <p>{props.text}</p>
       <style jsx>{`
         .button {
-          width: 300px;
+          min-width: 300px;
           height: 64px;
 
           border: 3px solid #fff;
@@ -16,7 +16,7 @@ const Button = (props) => {
           justify-content: center;
           align-items: center;
 
-          font-size: 32px;
+          font-size: 30px;
           line-height: 32;
 
           cursor: pointer;
@@ -30,6 +30,10 @@ const Button = (props) => {
         .button:active {
           background-color: #ffffff;
           color: var(--color-main);
+        }
+
+        p {
+          padding: 0 1rem;
         }
       `}</style>
     </div>
