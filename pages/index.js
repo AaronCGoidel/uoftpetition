@@ -47,8 +47,7 @@ export default function Home() {
         }
 
         h1 {
-          font-size: 3rem;
-          font-weight: normal;
+          // font-size: 3rem;
         }
       `}</style>
     </div>

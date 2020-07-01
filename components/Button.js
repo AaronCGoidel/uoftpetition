@@ -22,9 +22,12 @@ const Button = (props) => {
           cursor: pointer;
 
           transition: 0.2s;
+
+          margin: 1rem;
         }
 
-        .button:hover {
+        .button:hover,
+        .button:active {
           background-color: #ffffff;
           color: var(--color-main);
         }
