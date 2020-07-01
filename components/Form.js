@@ -1,10 +1,15 @@
 import React from "react";
 import Button from "./Button";
 import { useForm } from "react-hook-form";
+import templeate from "../lib/template";
 
 export default function Form() {
-  const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, handleSubmit, formState } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    // const t = templeate(data);
+    // window.location = `mailto:xyz@abc.com?subject=${t.subject}`;
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form">
@@ -12,7 +17,7 @@ export default function Form() {
       <input
         type="text"
         placeholder="Your Name"
-        name="First name"
+        name="Name"
         ref={register({ maxLength: 80 })}
       />
 
@@ -23,18 +28,27 @@ export default function Form() {
           id="in-person"
           name="learning-type"
           value="in-person"
+          ref={register}
         />
-        <label for="in-person">All my classes are in-person</label>
+        <label htmlFor="in-person">All my classes are in-person</label>
       </div>
 
       <div>
-        <input type="radio" name="learning-type" value="mix" />
-        <label for="mix">I have a mix of in-person and online classes</label>
+        <input type="radio" name="learning-type" value="mix" ref={register} />
+        <label htmlFor="mix">
+          I have a mix of in-person and online classes
+        </label>
       </div>
 
       <div>
-        <input type="radio" id="other" name="learning-type" value="other" />
-        <label for="other">All of my classes are online</label>
+        <input
+          type="radio"
+          id="online"
+          name="learning-type"
+          value="online"
+          ref={register}
+        />
+        <label htmlFor="online">All of my classes are online</label>
       </div>
 
       <div className="buttons flex-center">
