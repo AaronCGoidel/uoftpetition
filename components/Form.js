@@ -17,6 +17,10 @@ export default function Form() {
       className="form"
       netlify-honeypot="bot-field"
       data-netlify="true"
+<<<<<<< HEAD
+=======
+      onSubmit={this.handleSubmit}
+>>>>>>> 3f293c40e350c1f4693100cea909b3d6f298e56c
     >
       <label className="title">Name</label>
       <input
