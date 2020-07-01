@@ -28,20 +28,24 @@ const Modal = (props) => {
   return (
     <div className={`modal ${props.open ? "show-modal" : ""}`}>
       <div ref={modalRef} className="modal-window">
-        <span className="close-button" onClick={props.closeFn}>
-          &times;
-        </span>
-        <h1>Send Your Petition</h1>
-        <h4>The following (optional) form will help customize your email.</h4>
         <div>
-          <Button
-            dark
-            text={
-              props.formEmpty
-                ? "Submit Default Peitition"
-                : "Submit Customized Peition"
-            }
-          />
+          <span className="close-button" onClick={props.closeFn}>
+            &times;
+          </span>
+        </div>
+        <div className="content">
+          <h1>Send Your Petition</h1>
+          <h4>The following (optional) form will help customize your email.</h4>
+          <div className="bottom">
+            <Button
+              dark
+              text={
+                props.formEmpty
+                  ? "Submit Default Peitition"
+                  : "Submit Customized Petition"
+              }
+            />
+          </div>
         </div>
       </div>
       <style jsx>{`
@@ -71,7 +75,7 @@ const Modal = (props) => {
         }
 
         .close-button {
-          float: right;
+          float: left;
           width: 1.5rem;
           line-height: 1.5rem;
           text-align: center;
@@ -90,8 +94,19 @@ const Modal = (props) => {
           transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
         }
 
-        @media screen and (max-width: 70rem) {
-          .modal {
+        @media screen and (max-width: 50rem) {
+          .modal-window {
+            height: 100vh;
+            width: 100vw;
+            border-radius: 0;
+          }
+
+          .content {
+            height: 100vh;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
         }
       `}</style>

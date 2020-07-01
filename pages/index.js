@@ -75,6 +75,10 @@ class Home extends React.Component {
             text-align: center;
             font-weight: normal;
           }
+
+          .bottom {
+            margin-top: auto;
+          }
         `}</style>
       </div>
     );
