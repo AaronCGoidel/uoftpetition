@@ -27,7 +27,7 @@ const Button = (props) => {
 
           transition: 0.2s ease-in-out;
 
-          margin: 1.4rem;
+          margin: auto;
 
           background-color: transparent;
           color: #fff;

@@ -49,7 +49,7 @@ class Home extends React.Component {
           {/* <link rel="icon" href="/favicon.ico" /> */}
         </Head>
 
-        <main>
+        <main className={`${this.state.form_open ? "static" : ""}`}>
           <Hero toggleForm={() => this.handleToggleForm()} />
           <Info />
           <Bottom
@@ -115,6 +115,10 @@ class Home extends React.Component {
           a:active {
             text-decoration: none;
             color: inherit;
+          }
+
+          .static {
+            position: fixed;
           }
         `}</style>
       </div>

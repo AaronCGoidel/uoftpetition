@@ -65,6 +65,10 @@ const Modal = (props) => {
           border-radius: 0.5rem;
         }
 
+        .content {
+          display: flex;
+        }
+
         .close-button {
           width: 1.6rem;
           line-height: 1.6rem;
@@ -84,16 +88,24 @@ const Modal = (props) => {
           transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
         }
 
+        h1 {
+          margin: 0;
+        }
+
         @media screen and (max-width: 50rem) {
           .modal-window {
             height: 100vh;
             width: 100vw;
             border-radius: 0;
+
+            // overflow-y: hidden;
           }
 
           .content {
             height: 100vh;
             padding: 1rem;
+            overflow-y: scroll;
+            z-index: 1000;
           }
         }
       `}</style>

@@ -15,7 +15,9 @@ const Hero = (props) => {
         <h1>
           Online learning should not be as expensive as in-person classes.
         </h1>
-        <h2>Stand up for fair fees during Covid-19.</h2>
+        <h2>
+          Stand up for fair fees during <nobr>Covid-19.</nobr>
+        </h2>
         <Button text={"Send Email"} onClick={props.toggleForm} />
       </div>
       <Arrow text={"Learn More"} />
@@ -28,6 +30,10 @@ const Hero = (props) => {
 
           .call-to {
             margin-top: auto;
+          }
+
+          h2 {
+            margin-bottom: 2.2rem;
           }
         `}
       </style>

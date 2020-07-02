@@ -105,10 +105,10 @@ const Form = (props) => {
           .form {
               display: flex;
               flex-direction: column;
+              flex: 1;
           }
 
           input[type="text"] {
-            flex: 1;
             padding: 1.2rem 1rem;
             border-radius: 12px;
             border 1px solid #6c6c6c;
@@ -135,6 +135,12 @@ const Form = (props) => {
             flex: 1;
             border-bottom: 1px solid #6c6c6c;
             margin: 0 1rem;
+          }
+
+          .buttons {
+            flex: 1;
+            margin-top: 1rem;
+            padding: 2rem 0;
           }
         `}
       </style>
