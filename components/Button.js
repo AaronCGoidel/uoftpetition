@@ -27,10 +27,16 @@ const Button = (props) => {
 
           transition: 0.2s ease-in-out;
 
-          margin: auto;
+          margin: 10px;
 
           background-color: transparent;
           color: #fff;
+        }
+
+        @media screen and (max-width: 300px) {
+          .button: {
+            margin: 10px;
+          }
         }
 
         .light:hover,

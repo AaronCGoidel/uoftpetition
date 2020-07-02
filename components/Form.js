@@ -142,6 +142,22 @@ const Form = (props) => {
             margin-top: 1rem;
             padding: 2rem 0;
           }
+
+          @media screen and (max-width: 50rem) {
+            .buttons {
+              margin-top: 0;
+              padding-bottom: 1rem;
+            }
+
+            .divider::before,
+            .divider::after {
+              margin: .1rem 1rem;
+            }
+
+            .divider {
+              font-size: 14px;
+            }
+          }
         `}
       </style>
     </form>

@@ -103,9 +103,13 @@ const Modal = (props) => {
 
           .content {
             height: 100vh;
-            padding: 1rem;
+            // padding: 1rem;
             overflow-y: scroll;
             z-index: 1000;
+          }
+
+          h4 {
+            margin-bottom: 0;
           }
         }
       `}</style>
