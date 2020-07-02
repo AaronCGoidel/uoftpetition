@@ -134,7 +134,7 @@ const Form = (props) => {
             content: "";
             flex: 1;
             border-bottom: 1px solid #6c6c6c;
-            margin: 0 1rem;
+            margin: 1.5rem; 1rem;
           }
 
           .buttons {

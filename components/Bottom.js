@@ -16,6 +16,7 @@ const Bottom = (props) => {
           h1 {
             font-size: 2.66em;
             color: var(--color-light);
+            margin: 0;
           }
 
           h2 {

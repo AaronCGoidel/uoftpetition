@@ -65,7 +65,13 @@ class Home extends React.Component {
 
         <Footer />
 
-        <style jsx>{``}</style>
+        <style jsx>{`
+          @media screen and (max-width: 50rem) {
+            .static {
+              position: fixed;
+            }
+          }
+        `}</style>
 
         <style jsx global>{`
           :root {
@@ -115,10 +121,6 @@ class Home extends React.Component {
           a:active {
             text-decoration: none;
             color: inherit;
-          }
-
-          .static {
-            position: fixed;
           }
         `}</style>
       </div>
