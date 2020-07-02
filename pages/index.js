@@ -5,6 +5,9 @@ import Footer from "../components/Footer";
 import Info from "../components/Info";
 import Bottom from "../components/Bottom";
 import Modal from "../components/Modal";
+import firebase from "../components/Firebase";
+
+const db = firebase.firestore();
 
 class Home extends React.Component {
   constructor(props) {
@@ -19,6 +22,8 @@ class Home extends React.Component {
       form_open: !this.state.form_open,
     });
   };
+
+  componentDidMount() {}
 
   render() {
     return (
@@ -39,7 +44,7 @@ class Home extends React.Component {
           <Bottom toggleForm={() => this.handleToggleForm()} num={1} />
           <Modal
             open={this.state.form_open}
-            closeFn={() => this.handleToggleForm()}
+            closeFn={() => this.setState({ form_open: false })}
           />
         </main>
 

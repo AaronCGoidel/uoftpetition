@@ -1,15 +1,16 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Button from "./Button";
 import Form from "./Form";
 
-function useOutsideAlerter(ref, callback, isOpen) {
+function useOutsideAlerter(ref, callback) {
   useEffect(() => {
     function handleCloseEvt(event) {
-      if (
-        event.keyCode == 27 ||
-        (ref.current && !ref.current.contains(event.target) && isOpen)
-      ) {
+      if (event.keyCode == 27) {
         callback();
+      } else if (ref.current && !ref.current.contains(event.target)) {
+        if (event.keyCode === undefined) {
+          callback();
+        }
       }
     }
 
@@ -24,7 +25,7 @@ function useOutsideAlerter(ref, callback, isOpen) {
 
 const Modal = (props) => {
   const modalRef = useRef(null);
-  useOutsideAlerter(modalRef, props.closeFn, props.open);
+  useOutsideAlerter(modalRef, props.closeFn);
 
   return (
     <div className={`modal ${props.open ? "show-modal" : ""}`}>
@@ -34,7 +35,7 @@ const Modal = (props) => {
         </div>
         <div className="content flex-center">
           <h1>Send Your Petition</h1>
-          <h4>The following (optional) form will help customize your email.</h4>
+          <h4>The following form will help customize your email.</h4>
           <Form />
         </div>
       </div>

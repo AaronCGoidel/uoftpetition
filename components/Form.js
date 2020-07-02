@@ -17,7 +17,6 @@ export default function Form() {
       className="form"
       netlify-honeypot="bot-field"
       data-netlify="true"
-      netlify
     >
       <label className="title">Name</label>
       <input
@@ -25,6 +24,7 @@ export default function Form() {
         placeholder="Your Name"
         name="Name"
         ref={register({ maxLength: 80 })}
+        required
       />
       <label className="title">Learning Type</label>
       <div>
@@ -34,6 +34,7 @@ export default function Form() {
           name="learning-type"
           value="in-person"
           ref={register}
+          required
         />
         <label htmlFor="in-person">All my classes are in-person</label>
       </div>
@@ -54,9 +55,9 @@ export default function Form() {
         <label htmlFor="online">All of my classes are online</label>
       </div>
       <div className="buttons flex-center">
-        <Button dark text={"Send Customized Petition"} type="submit" />
+        <Button dark text={"Send Your Petition"} type={"submit"} />
         <div className="divider">or</div>
-        <Button dark text={"Send Default Petition"} type="button" />
+        <Button dark text={"Get Plaintext"} type="button" />
       </div>
       <style jsx>
         {`
