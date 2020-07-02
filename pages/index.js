@@ -14,6 +14,7 @@ class Home extends React.Component {
     super(props);
     this.state = {
       form_open: false,
+      num_sent: 0,
     };
   }
 
@@ -23,7 +24,17 @@ class Home extends React.Component {
     });
   };
 
-  componentDidMount() {}
+  handleFormSubmit = (new_petition) => {
+    db.collection("petitions").add({
+      ...new_petition,
+    });
+  };
+
+  componentDidMount() {
+    db.collection("petitions")
+      .get()
+      .then((res) => this.setState({ num_sent: res.size }));
+  }
 
   render() {
     return (
@@ -41,10 +52,14 @@ class Home extends React.Component {
         <main>
           <Hero toggleForm={() => this.handleToggleForm()} />
           <Info />
-          <Bottom toggleForm={() => this.handleToggleForm()} num={1} />
+          <Bottom
+            toggleForm={() => this.handleToggleForm()}
+            num={this.state.num_sent}
+          />
           <Modal
             open={this.state.form_open}
             closeFn={() => this.setState({ form_open: false })}
+            submitForm={this.handleFormSubmit}
           />
         </main>
 

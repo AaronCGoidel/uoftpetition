@@ -3,10 +3,11 @@ import Button from "./Button";
 import { useForm } from "react-hook-form";
 import templeate from "../lib/template";
 
-export default function Form() {
+const Form = (props) => {
   const { register, handleSubmit, formState } = useForm();
   const onSubmit = (data) => {
     console.log(data);
+    props.submit(data);
     // const t = templeate(data);
     // window.location = `mailto:xyz@abc.com?subject=${t.subject}`;
   };
@@ -22,7 +23,7 @@ export default function Form() {
       <input
         type="text"
         placeholder="Your Name"
-        name="Name"
+        name="name"
         ref={register({ maxLength: 80 })}
         required
       />
@@ -105,4 +106,6 @@ export default function Form() {
       </style>
     </form>
   );
-}
+};
+
+export default Form;
