@@ -36,7 +36,7 @@ const Modal = (props) => {
         <div className="content flex-center">
           <h1>Send Your Petition</h1>
           <h4>The following form will help customize your email.</h4>
-          <Form submit={props.submitForm} />
+          <Form submit={props.submitForm} closeForm={props.closeFn} />
         </div>
       </div>
       <style jsx>{`

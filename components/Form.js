@@ -1,20 +1,20 @@
 import React from "react";
 import Button from "./Button";
 import { useForm } from "react-hook-form";
-import templeate from "../lib/template";
 
 const Form = (props) => {
   const { register, handleSubmit, formState } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = (data, isEmail) => {
     console.log(data);
     props.submit(data);
-    // const t = templeate(data);
+    props.closeForm();
+    // const t = template(data);
     // window.location = `mailto:xyz@abc.com?subject=${t.subject}`;
   };
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit, true)}
       className="form"
       netlify-honeypot="bot-field"
       data-netlify="true"
