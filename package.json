@@ -2,6 +2,11 @@
   "name": "uoft-petition",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Aaron Goidel",
+    "email": "acgoidel@gmail.com",
+    "url": "https://aarongoidel.com"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

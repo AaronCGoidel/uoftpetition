@@ -22,7 +22,7 @@ const Form = (props) => {
       <label className="title">Name</label>
       <input
         type="text"
-        placeholder="Your Name"
+        placeholder="Your Name, First and Last"
         name="name"
         ref={register({ maxLength: 80 })}
         required

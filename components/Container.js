@@ -10,7 +10,7 @@ const Container = (props) => {
       <style jsx>{`
         div {
           width: 100vw;
-          height: 100vh;
+          min-height: 100vh;
 
           display: flex;
           flex-direction: column;
@@ -32,7 +32,7 @@ const Container = (props) => {
         }
 
         .thin {
-          height: 50vh;
+          min-height: 50vh;
         }
 
         @media screen and (max-width: 70rem) {
