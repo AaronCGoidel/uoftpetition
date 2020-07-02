@@ -55,6 +55,40 @@ const Form = (props) => {
         />
         <label htmlFor="online">All of my classes are online</label>
       </div>
+      <label className="title">At which UofT campus are you enrolled?</label>
+      <div>
+        <input
+          type="radio"
+          id="Mississauga"
+          name="campus"
+          value="Mississauga"
+          ref={register}
+          required
+        />
+        <label htmlFor="Mississauga">Mississauga</label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          id="Scarborough"
+          name="campus"
+          value="Scarborough"
+          ref={register}
+          required
+        />
+        <label htmlFor="Scarborough">Scarborough</label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          id="St=George"
+          name="campus"
+          value="St. George"
+          ref={register}
+          required
+        />
+        <label htmlFor="St-George">St. George</label>
+      </div>
       <div className="buttons flex-center">
         <Button dark text={"Send Your Petition"} type={"submit"} />
         <div className="divider">or</div>
