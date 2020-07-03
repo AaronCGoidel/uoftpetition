@@ -48,8 +48,8 @@ const Info = () => {
       <p>
         Simply click one of the buttons on this page, fill out a form (this
         information helps us keep track of who has signed the peition, for
-        legitimacy purposes), and either click the button send the automatically
-        drafted email or copy and paste it and send it yourself.
+        legitimacy purposes), and click the button send the automatically
+        drafted email.
       </p>
       <p>
         We take care of drafting the email and select who it should go to based

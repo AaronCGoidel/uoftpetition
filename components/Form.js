@@ -123,13 +123,13 @@ const Form = (props) => {
         </div>
         <div className="buttons flex-center">
           <Button dark text={"Send Your Petition"} type={"submit"} />
-          <div className="divider">or</div>
+          {/* <div className="divider">or</div>
           <Button
             dark
             text={"Get Plaintext"}
             type="button"
             onClick={handleSubmit(onSubmit)}
-          />
+          /> */}
         </div>
       </form>
       <style jsx>
