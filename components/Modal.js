@@ -92,8 +92,13 @@ const Modal = (props) => {
         }
 
         @media screen and (max-width: 50rem) {
+          .modal {
+            // overflow-y: hidden;
+            min-height: 100vh;
+          }
           .modal-window {
             height: 100vh;
+            min-height: 100vh;
             width: 100vw;
             border-radius: 0;
 
@@ -101,8 +106,8 @@ const Modal = (props) => {
           }
 
           .content {
-            height: 100vh;
-            // padding: 1rem;
+            height: 110vh;
+            padding: 0rem 1rem 1rem 1rem;
             overflow-y: scroll;
             z-index: 1000;
           }

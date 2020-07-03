@@ -185,6 +185,7 @@ const Form = (props) => {
             .buttons {
               margin-top: 0;
               padding-bottom: 1rem;
+              padding-top: .1rem;
             }
 
             .divider::before,
