@@ -6,6 +6,8 @@ import Info from "../components/Info";
 import Bottom from "../components/Bottom";
 import Modal from "../components/Modal";
 import firebase from "../components/Firebase";
+import Form from "../components/Form";
+import Plaintext from "../components/Plaintext";
 
 const db = firebase.firestore();
 
@@ -15,6 +17,8 @@ class Home extends React.Component {
     this.state = {
       form_open: false,
       num_sent: 0,
+      email: {},
+      show_email: false,
     };
   }
 
@@ -28,6 +32,10 @@ class Home extends React.Component {
     db.collection("petitions").add({
       ...new_petition,
     });
+  };
+
+  handlePlaintext = (email) => {
+    this.setState({ email: { ...email }, show_email: true });
   };
 
   componentDidMount() {
@@ -57,10 +65,22 @@ class Home extends React.Component {
             num={this.state.num_sent}
           />
           <Modal
+            center
             open={this.state.form_open}
             closeFn={() => this.setState({ form_open: false })}
-            submitForm={this.handleFormSubmit}
-          />
+          >
+            <Form
+              submit={this.handleFormSubmit}
+              plaintextSubmit={this.handlePlaintext}
+              closeForm={() => this.setState({ form_open: false })}
+            />
+          </Modal>
+          <Modal
+            open={this.state.show_email}
+            closeFn={() => this.setState({ show_email: false })}
+          >
+            <Plaintext email={this.state.email} />
+          </Modal>
         </main>
 
         <Footer />

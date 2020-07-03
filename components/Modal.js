@@ -33,10 +33,8 @@ const Modal = (props) => {
         <div className="close-button" onClick={props.closeFn}>
           &times;
         </div>
-        <div className="content flex-center">
-          <h1>Send Your Petition</h1>
-          <h4>The following form will help customize your email.</h4>
-          <Form submit={props.submitForm} closeForm={props.closeFn} />
+        <div className={`content ${props.center ? "flex-center" : "padded"}`}>
+          {props.children}
         </div>
       </div>
       <style jsx>{`
@@ -67,6 +65,7 @@ const Modal = (props) => {
 
         .content {
           display: flex;
+          padding: 0 2rem;
         }
 
         .close-button {
