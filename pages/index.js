@@ -81,14 +81,16 @@ class Home extends React.Component {
           >
             <Plaintext email={this.state.email} />
           </Modal>
+          <Footer />
         </main>
 
-        <Footer />
-
         <style jsx>{`
-          @media screen and (max-width: 50rem) {
+          @media screen and (max-width: 800px) {
             .static {
               position: fixed;
+              visibility: hidden;
+              z-index: -1;
+              overflow: hidden;
             }
           }
         `}</style>
