@@ -8,17 +8,21 @@ import Modal from "../components/Modal";
 import firebase from "../components/Firebase";
 import Form from "../components/Form";
 import Plaintext from "../components/Plaintext";
+import Cookies from "universal-cookie";
+import CookieConsent from "react-cookie-consent";
 
 const db = firebase.firestore();
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       form_open: false,
       num_sent: 0,
       email: {},
       show_email: false,
+      cookies: new Cookies(),
     };
   }
 
@@ -28,10 +32,20 @@ class Home extends React.Component {
     });
   };
 
-  handleFormSubmit = (new_petition) => {
-    db.collection("petitions").add({
-      ...new_petition,
-    });
+  handleFormSubmit = (new_petition, email) => {
+    if (this.state.cookies.get("submitted") === undefined) {
+      db.collection("petitions").add({
+        ...new_petition,
+      });
+
+      window.location = email;
+
+      console.log("submitted");
+    } else {
+      console.log("could not submit");
+    }
+
+    this.state.cookies.set("submitted", true, { path: "/" });
   };
 
   handlePlaintext = (email) => {
@@ -58,6 +72,23 @@ class Home extends React.Component {
         </Head>
 
         <main className={`${this.state.form_open ? "static" : ""}`}>
+          <CookieConsent
+            location="bottom"
+            buttonText="I Understand"
+            style={{ background: "#fff", color: "#000" }}
+            buttonStyle={{
+              background: "var(--color-light)",
+              color: "var(--color-main)",
+              fontSize: "13px",
+            }}
+            expires={150}
+          >
+            This website uses cookies to function.{" "}
+            <span style={{ fontSize: "10px" }}>
+              We only keep track of which device has used the form to prevent
+              spam.
+            </span>
+          </CookieConsent>
           <Hero toggleForm={() => this.handleToggleForm()} />
           <Info />
           <Bottom

@@ -7,16 +7,17 @@ const Form = (props) => {
   const { register, handleSubmit, formState } = useForm();
 
   const onSubmit = (data, isEmail = true) => {
-    props.submit(data);
     let t = template(data);
     props.closeForm();
+    t = { ...t, body: t.body.replace(/(?:\r\n|\r|\n)/g, "%0D%0A") };
+    props.submit(data, `mailto:${t.to}?subject=${t.subject}&body=${t.body}`);
 
-    if (isEmail) {
-      t = { ...t, body: t.body.replace(/(?:\r\n|\r|\n)/g, "%0D%0A") };
-      window.location = `mailto:${t.to}?subject=${t.subject}&body=${t.body}`;
-    } else {
-      props.plaintextSubmit(t);
-    }
+    // if (isEmail) {
+    //   t = { ...t, body: t.body.replace(/(?:\r\n|\r|\n)/g, "%0D%0A") };
+    //   window.location = `mailto:${t.to}?subject=${t.subject}&body=${t.body}`;
+    // } else {
+    //   props.plaintextSubmit(t);
+    // }
   };
 
   const onSubmitPlain = (data) => {
