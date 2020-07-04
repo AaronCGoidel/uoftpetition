@@ -7,24 +7,9 @@ import Bottom from "../components/Bottom";
 import Modal from "../components/Modal";
 import firebase from "../components/Firebase";
 import Form from "../components/Form";
-import Plaintext from "../components/Plaintext";
+import Thanks from "../components/Thanks";
 import Cookies from "universal-cookie";
 import CookieConsent from "react-cookie-consent";
-import {
-  FacebookShareButton,
-  RedditShareButton,
-  TwitterShareButton,
-  WhatsappShareButton,
-  FacebookMessengerShareButton,
-} from "react-share";
-
-import {
-  FacebookIcon,
-  FacebookMessengerIcon,
-  RedditIcon,
-  TwitterIcon,
-  WhatsappIcon,
-} from "react-share";
 
 const db = firebase.firestore();
 
@@ -134,47 +119,7 @@ class Home extends React.Component {
             open={this.state.thank_you}
             closeFn={() => this.setState({ thank_you: false })}
           >
-            <div>
-              <h1>Thank You!</h1>
-              <h4>
-                Your voice is important and we want it heard. Thank you for
-                standing up for fair fees at UofT.
-              </h4>
-              <h4>
-                The more people who send a petition, the better. If you would
-                like to further support our cause, please consider sharing this
-                site.
-              </h4>
-              <div className="socials">
-                <FacebookShareButton
-                  quote={this.shareMessage}
-                  url={"http://fairuoft.com"}
-                >
-                  {" "}
-                  <FacebookIcon size={48} round={true} />
-                </FacebookShareButton>
-                <RedditShareButton url={"http://fairuoft.com"}>
-                  {" "}
-                  <RedditIcon size={48} round={true} />
-                </RedditShareButton>
-                <TwitterShareButton
-                  title={this.shareMessage}
-                  url={"http://fairuoft.com"}
-                >
-                  <TwitterIcon size={48} round={true} />{" "}
-                </TwitterShareButton>
-                <WhatsappShareButton
-                  title={this.shareMessage}
-                  url={"http://fairuoft.com"}
-                >
-                  {" "}
-                  <WhatsappIcon size={48} round={true} />
-                </WhatsappShareButton>
-                {/* <FacebookMessengerShareButton url={"http://fairuoft.com"}>
-                  <FacebookMessengerIcon />
-                </FacebookMessengerShareButton> */}
-              </div>
-            </div>
+            <Thanks />
           </Modal>
           <Footer />
         </main>
@@ -187,13 +132,6 @@ class Home extends React.Component {
               z-index: -1;
               overflow: hidden;
             }
-          }
-
-          .socials {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            justify-content: space-evenly;
           }
         `}</style>
 
