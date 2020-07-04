@@ -16,6 +16,9 @@ import {
 
 import React from "react";
 
+const shareMessage =
+  "Send an email petition in support of fair fees at UofT during Covid-19.";
+
 const Thanks = () => {
   return (
     <div>
@@ -29,10 +32,7 @@ const Thanks = () => {
         further support our cause, please consider sharing this site.
       </h4>
       <div className="socials">
-        <FacebookShareButton
-          quote={this.shareMessage}
-          url={"http://fairuoft.com"}
-        >
+        <FacebookShareButton quote={shareMessage} url={"http://fairuoft.com"}>
           {" "}
           <FacebookIcon size={48} round={true} />
         </FacebookShareButton>
@@ -40,16 +40,10 @@ const Thanks = () => {
           {" "}
           <RedditIcon size={48} round={true} />
         </RedditShareButton>
-        <TwitterShareButton
-          title={this.shareMessage}
-          url={"http://fairuoft.com"}
-        >
+        <TwitterShareButton title={shareMessage} url={"http://fairuoft.com"}>
           <TwitterIcon size={48} round={true} />{" "}
         </TwitterShareButton>
-        <WhatsappShareButton
-          title={this.shareMessage}
-          url={"http://fairuoft.com"}
-        >
+        <WhatsappShareButton title={shareMessage} url={"http://fairuoft.com"}>
           {" "}
           <WhatsappIcon size={48} round={true} />
         </WhatsappShareButton>

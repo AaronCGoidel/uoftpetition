@@ -64,9 +64,6 @@ class Home extends React.Component {
       .then((res) => this.setState({ num_sent: res.size }));
   }
 
-  shareMessage =
-    "Send an email petition in support of fair fees at UofT during Covid-19.";
-
   render() {
     return (
       <div className="container">
