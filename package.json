@@ -20,6 +20,7 @@
     "react-cookie-consent": "^5.1.2",
     "react-dom": "16.13.1",
     "react-hook-form": "^6.0.0",
+    "react-share": "^4.2.0",
     "universal-cookie": "^4.0.3"
   }
 }

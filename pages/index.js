@@ -10,6 +10,21 @@ import Form from "../components/Form";
 import Plaintext from "../components/Plaintext";
 import Cookies from "universal-cookie";
 import CookieConsent from "react-cookie-consent";
+import {
+  FacebookShareButton,
+  RedditShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  FacebookMessengerShareButton,
+} from "react-share";
+
+import {
+  FacebookIcon,
+  FacebookMessengerIcon,
+  RedditIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from "react-share";
 
 const db = firebase.firestore();
 
@@ -21,7 +36,7 @@ class Home extends React.Component {
       form_open: false,
       num_sent: 0,
       email: {},
-      show_email: false,
+      thank_you: false,
       cookies: new Cookies(),
     };
   }
@@ -40,6 +55,8 @@ class Home extends React.Component {
 
       window.location = email;
 
+      this.setState({ thank_you: true });
+
       console.log("submitted");
     } else {
       console.log("could not submit");
@@ -53,10 +70,17 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
+    if (this.state.cookies.get("submitted")) {
+      this.setState({ thank_you: true });
+    }
+
     db.collection("petitions")
       .get()
       .then((res) => this.setState({ num_sent: res.size }));
   }
+
+  shareMessage =
+    "Send an email petition in support of fair fees at UofT during Covid-19.";
 
   render() {
     return (
@@ -107,10 +131,50 @@ class Home extends React.Component {
             />
           </Modal>
           <Modal
-            open={this.state.show_email}
-            closeFn={() => this.setState({ show_email: false })}
+            open={this.state.thank_you}
+            closeFn={() => this.setState({ thank_you: false })}
           >
-            <Plaintext email={this.state.email} />
+            <div>
+              <h1>Thank You!</h1>
+              <h4>
+                Your voice is important and we want it heard. Thank you for
+                standing up for fair fees at UofT.
+              </h4>
+              <h4>
+                The more people who send a petition, the better. If you would
+                like to further support our cause, please consider sharing this
+                site.
+              </h4>
+              <div className="socials">
+                <FacebookShareButton
+                  quote={this.shareMessage}
+                  url={"http://fairuoft.com"}
+                >
+                  {" "}
+                  <FacebookIcon size={48} round={true} />
+                </FacebookShareButton>
+                <RedditShareButton url={"http://fairuoft.com"}>
+                  {" "}
+                  <RedditIcon size={48} round={true} />
+                </RedditShareButton>
+                <TwitterShareButton
+                  title={this.shareMessage}
+                  url={"http://fairuoft.com"}
+                >
+                  <TwitterIcon size={48} round={true} />{" "}
+                </TwitterShareButton>
+                <WhatsappShareButton
+                  title={this.shareMessage}
+                  url={"http://fairuoft.com"}
+                >
+                  {" "}
+                  <WhatsappIcon size={48} round={true} />
+                </WhatsappShareButton>
+                {/* <FacebookMessengerShareButton url={"http://fairuoft.com"}>
+                  <FacebookMessengerIcon />
+                </FacebookMessengerShareButton> */}
+              </div>
+            </div>
           </Modal>
           <Footer />
         </main>
@@ -123,6 +187,13 @@ class Home extends React.Component {
               z-index: -1;
               overflow: hidden;
             }
+          }
+
+          .socials {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            justify-content: space-evenly;
           }
         `}</style>
 
